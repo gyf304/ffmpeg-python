@@ -199,6 +199,7 @@ def run_async(
     pipe_stderr=False,
     quiet=False,
     overwrite_output=False,
+    **kwargs,
 ):
     """Asynchronously invoke ffmpeg for the supplied node graph.
 
@@ -282,7 +283,7 @@ def run_async(
     stdout_stream = subprocess.PIPE if pipe_stdout or quiet else None
     stderr_stream = subprocess.PIPE if pipe_stderr or quiet else None
     return subprocess.Popen(
-        args, stdin=stdin_stream, stdout=stdout_stream, stderr=stderr_stream
+        args, stdin=stdin_stream, stdout=stdout_stream, stderr=stderr_stream, **kwargs
     )
 
 
@@ -295,6 +296,7 @@ def run(
     input=None,
     quiet=False,
     overwrite_output=False,
+    **kwargs,
 ):
     """Invoke ffmpeg for the supplied node graph.
 
@@ -318,6 +320,7 @@ def run(
         pipe_stderr=capture_stderr,
         quiet=quiet,
         overwrite_output=overwrite_output,
+        **kwargs,
     )
     out, err = process.communicate(input)
     retcode = process.poll()
