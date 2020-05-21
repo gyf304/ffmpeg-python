@@ -1,11 +1,7 @@
 from setuptools import setup
 from textwrap import dedent
 
-version = '0.2.0'
-download_url = 'https://github.com/kkroening/ffmpeg-python/archive/v{}.zip'.format(
-    version
-)
-
+version = '0.2.1'
 long_description = dedent(
     '''\
     ffmpeg-python: Python bindings for FFmpeg
@@ -58,7 +54,7 @@ misc_keywords = [
 keywords = misc_keywords + file_formats
 
 setup(
-    name='ffmpeg-python',
+    name='zensors-ffmpeg-python',
     packages=['ffmpeg'],
     setup_requires=['pytest-runner'],
     tests_require=['pytest', 'pytest-mock'],
@@ -67,7 +63,6 @@ setup(
     author='Karl Kroening',
     author_email='karlk@kralnet.us',
     url='https://github.com/kkroening/ffmpeg-python',
-    download_url=download_url,
     keywords=keywords,
     long_description=long_description,
     install_requires=['future'],
